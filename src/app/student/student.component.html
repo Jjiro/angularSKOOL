@@ -1,0 +1,84 @@
+<div class="container-fluid">
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container">
+      <h1 class="display-4">Student</h1>
+      <button type="button" class="btn btn-primary" data-toggle="modal" (click)="open(studentForm)">
+        Add Student
+      </button>
+      <hr class="my-4">
+
+      <table *ngIf="students.length > 0" class="table table-striped table-dark">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Full name</th>
+          <th scope="col">Joined on</th>
+          <th scope="col">Is Active</th>
+          <th scope="col">School</th>
+          <th scope="col">Grade</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let student of students">
+          <th scope="row">{{ student.studentId }}</th>
+          <td>{{ student.name }}</td>
+          <td>{{ student.joinDate | date: "longDate" }}</td>
+          <td>{{ student.school }}</td>
+          <td>{{ student.isActive }}</td>
+          <td>{{ student.grade }}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <ng-template #studentForm let-modal>
+        <div class="modal-header">
+          <h5 class="modal-title" id="studentModalLabel">Add New Student</h5>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #f="ngForm" (submit)="onSubmit(f)">
+            <div class="form-group">
+              <label class="font-weight-bold" for="name">Full name</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter full name" required
+                     ngModel>
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold" for="joindate">Join date</label>
+              <div class="input-group">
+                <input class="form-control" id="joindate" name="joindate" placeholder="mm-dd-yyyy" ngModel
+                       ngbDatepicker #d="ngbDatepicker"/>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="isactive" name="isactive" ngModel>
+              <label class="form-check label font-weight-bold" for="isactive">Is Active</label>
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold" for="school">School</label>
+              <select multiple class="form-control" id="school" name="school" required ngModel>
+                <option id="SchoolTartu" value="schoolTartu"> Tartu International</option>
+                <option id="SchoolTallinn" value="schoolTallinn"> Tallinn International</option>
+                <option id="SchoolVoru" value="schoolVoru"> Voru International</option>
+                <option id="SchoolSaaremaa" value="schoolSaaremaa"> Saaremaa International</option>
+                <option id="SchoolNarva" value="schoolNarva"> Narva International</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold" for="grade">Grade</label>
+              <input type="number" class="form-control" id="grade" name="grade" placeholder="Enter grade" required
+                     ngModel>
+            </div>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal">Submit</button>
+          </form>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>
+
+

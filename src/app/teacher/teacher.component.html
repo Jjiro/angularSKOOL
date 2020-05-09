@@ -1,0 +1,87 @@
+<div class="container-fluid">
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Teacher</h1>
+      <button type="button" class="btn btn-primary" data-toggle="modal" (click)="open(teacherForm)">
+        Add Teacher
+      </button>
+      <hr class="my-4">
+      <table *ngIf="teachers.length > 0" class="table table-striped table-dark">
+        <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Full name</th>
+          <th scope="col">Joined on</th>
+          <th scope="col">School</th>
+          <th scope="col">Specialist Fields</th>
+          <th scope="col">Is Active</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let teacher of teachers">
+          <th scope="row">{{ teacher.teacherId }}</th>
+          <td>{{ teacher.name }}</td>
+          <td>{{ teacher.joinDate | date: "longDate" }}</td>
+          <td>{{ teacher.school }}</td>
+          <td>{{ teacher.specialistFields.join(', ') }}</td>
+          <td>{{ teacher.isActive }}</td>
+        </tr>
+        </tbody>
+      </table>
+
+      <ng-template #teacherForm let-modal>
+        <div class="modal-header">
+          <h5 class="modal-title" id="teacherModalLabel">Add New teacher</h5>
+          <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form #f="ngForm" (submit)="onSubmit(f)">
+            <div class="form-group">
+              <label class="font-weight-bold" for="name">Full name</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Enter full name" required
+                     ngModel>
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold" for="school">School</label>
+              <select multiple class="form-control" id="school" name="school" required ngModel>
+                <option id="SchoolTartu" value="schoolTartu"> Tartu International</option>
+                <option id="SchoolTallinn" value="schoolTallinn"> Tallinn International</option>
+                <option id="SchoolVoru" value="schoolVoru"> Voru International</option>
+                <option id="SchoolSaaremaa" value="schoolSaaremaa"> Saaremaa International</option>
+                <option id="SchoolNarva" value="schoolNarva"> Narva International</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold" for="fields">Specialist Field</label>
+              <select multiple class="form-control" id="fields" name="fields" required ngModel>
+                <option id="mathematics" value="mathematics"> Mathematics</option>
+                <option id="english" value="english"> English</option>
+                <option id="history" value="history"> History</option>
+                <option id="physics" value="physics"> Physics</option>
+                <option id="chemistry" value="chemistry"> Chemistry</option>
+                <option id="biology" value="biology"> Biology</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="font-weight-bold" for="joindate">Join date</label>
+              <div class="input-group">
+                <input class="form-control" id="joindate" name="joindate" placeholder="mm-dd-yyyy" ngModel
+                       ngbDatepicker #d="ngbDatepicker"/>
+                <div class="input-group-append">
+                  <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+                </div>
+              </div>
+            </div>
+            <div class="form-group form-check">
+              <input type="checkbox" class="form-check-input" id="isactive" name="isactive" ngModel>
+              <label class="form-check label font-weight-bold" for="isactive">Is Active</label>
+            </div>
+            <button type="submit" class="btn btn-primary" data-dismiss="modal">Submit</button>
+          </form>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

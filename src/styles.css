@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+#breadcrumbNAV {
+  display: flex !important;
+  background-color: #343a40;
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+}
+#navbarSupportedContent a.nav-link {
+  display: flex !important;
+  background-color: #343a40;
+  justify-content: right;
+  color: #ffffff;
+}
+
+#mainNAV {
+  display: flex !important;
+  color: white;
+  background-color: darkgrey;
+  justify-content: left;
+}
+
+nav .navbar .navbar-light {
+  color: white;
+  background-color: #a9a9a9 !important;
+}
+.container-fluid, .jumbotron-fluid {
+  background-color: #808080;
+}
+
+h1{
+  color: #ffffff;
+}
+
+/*
+#6c757d
+#28a745
+#007bff
+#ffc107
+#28a745
+*/
