@@ -1,39 +1,67 @@
 /* You can add global styles to this file, and also import other style files */
-
-#breadcrumbNAV {
-  display: flex !important;
-  background-color: #343a40;
+#navbarSupportedContent a {
   color: #ffffff;
+  text-decoration: none;
+  justify-content: space-between;
   position: sticky;
   top: 0;
 }
-#navbarSupportedContent a.nav-link {
-  display: flex !important;
-  background-color: #343a40;
-  justify-content: right;
-  color: #ffffff;
-}
 
-#mainNAV {
-  display: flex !important;
-  color: white;
-  background-color: darkgrey;
-  justify-content: left;
+#navbarSupportedContent, #mainNAV {
+  background-color: #343a40 !important;
+}
+#mainNAV>a.navbar-brand {
+  color: #ffffff;
 }
 
 nav .navbar .navbar-light {
   color: white;
   background-color: #a9a9a9 !important;
 }
+
 .container-fluid, .jumbotron-fluid {
   background-color: #808080;
 }
 
-h1{
+body{
+  background-color: #808080;
+}
+
+h1, .modal-title, label.font-weight-bold{
   color: #ffffff;
+}
+.btn-primary {
+  color: #fff;
+  background-color: #008000 !important;
+  border-color: #008000 !important;
+}
+
+
+button.btn.btn-primary:hover, button.btn.btn-primary:after{
+  background-color: #007bff;
+  color: #000000 ;
+  border-color: #007bff;
+  box-shadow: #0a0000;
+}
+
+button.calendar, button.calendar:active {
+  width: 2.75rem;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACIAAAAcCAYAAAAEN20fAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAEUSURBVEiJ7ZQxToVAEIY/YCHGxN6XGOIpnpaEsBSeQC9ArZbm9TZ6ADyBNzAhQGGl8Riv4BLAWAgmkpBYkH1b8FWT2WK/zJ8ZJ4qiI6XUI3ANnGKWBnht2/ZBDRK3hgVGNsCd7/ui+JkEIrKtqurLpEWaphd933+IyI3LEIdpCYCiKD6HcuOa/nwOa0ScJEnk0BJg0UTUWJRl6RxCYEzEmomsIlPU3IPW+grIAbquy+q6fluy/28RIBeRMwDXdXMgXLj/B2uimRXpui4D9sBeRLKl+1N+L+t6RwbWrZliTTTr1oxYtzVWiTQAcRxvTX+eJMnlUDaO1vpZRO5NS0x48sIwfPc87xg4B04MCzQi8hIEwe4bl1DnFMCN2zsAAAAASUVORK5CYII=') !important;
+  background-repeat: no-repeat;
+  background-size: 23px;
+  background-position: center;
+}
+
+.btn.btn-outline-secondary.calendar{
+  color: #fff;
+}
+
+.modal-content{
+  background-color: #808080 !important;
 }
 
 /*
+#343a40
 #6c757d
 #28a745
 #007bff

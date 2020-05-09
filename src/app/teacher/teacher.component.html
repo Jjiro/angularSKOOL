@@ -28,12 +28,11 @@
         </tr>
         </tbody>
       </table>
-
       <ng-template #teacherForm let-modal>
         <div class="modal-header">
-          <h5 class="modal-title" id="teacherModalLabel">Add New teacher</h5>
+          <h5 class="modal-title" id="teacherModalLabel">Add New Teacher</h5>
           <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Close click')">
-            <span aria-hidden="true">&times;</span>
+            <span aria-hidden="true">x</span>
           </button>
         </div>
         <div class="modal-body">
@@ -70,7 +69,11 @@
                 <input class="form-control" id="joindate" name="joindate" placeholder="mm-dd-yyyy" ngModel
                        ngbDatepicker #d="ngbDatepicker"/>
                 <div class="input-group-append">
+<!--
                   <button class="btn btn-outline-secondary calendar" (click)="d.toggle()" type="button"></button>
+-->
+                  <button class="btn btn-outline-secondary calendar fa fa-calendar" (click)="d.toggle()" type="button"></button>
+
                 </div>
               </div>
             </div>
